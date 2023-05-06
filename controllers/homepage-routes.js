@@ -19,14 +19,21 @@ router.get('/', async (req, res) => {
             },
         ],
     }).catch((err) => {res.json(err)});
-    res.status(200).json(postData);
     const posts = postData.map((post) => post.get({ plain: true }));
     console.log(posts);
     res.render('homepage', {
-         posts,
+        posts,
         loggedIn: req.session.loggedIn,
     })
-    .catch ((err) => {res.json(err)});
 });
+
+router.get('/user/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('login');
+  });
 
 module.exports = router;

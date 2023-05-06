@@ -10,11 +10,10 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/style.css">
     <title>The Tech Blog</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">The Tech Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,23 +28,18 @@
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        {{#if loggedIn}}
-                        <a class="nav-link" id="logout" href="/user/logout">Logout</a>
-                        {{else}}
-                        <a class="nav-link" href="/user/login">Login</a>
-                        {{/if}}
+                            <button id="logout" class="btn-no-style">Logout</button>
+                            <a href="/user/login">Login</a>
+                        <a class="nav-link" href="/">Features</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <main>
-        <div class="body container-fluid">
-            {{{body}}}
+        <div class="body">
         </div>
     </main>
-    {{#if loggedIn}}
         <script src="/js/logout.js"></script>
-    {{/if}}
 </body>
 </html>

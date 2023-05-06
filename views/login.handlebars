@@ -1,0 +1,66 @@
+{{!-- Login --}}
+<div class="row justify-content-center">
+    <div class="login-card">
+        <h2 class="card-header text-center">Login</h2>
+        <form class="form login-form container-fluid">
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <label >Username</label>
+                            <input type="username" class="form-control" id="username-login" placeholder="Enter Username">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="password-login" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="width: 30%">
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-dark">Login</button>
+                    <p>Don't have a login? Sign-Up Below</p>
+                </div>
+            </div>
+        </form>
+
+        {{!-- Signup --}}
+        <h2 class="card-header text-center">Sign-Up</h2>
+        <form class="form signup-form container-fluid">
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <label >Username</label>
+                            <input type="username" class="form-control" id="username-signup" placeholder="Enter Username">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="password-signup" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="width: 30%">
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-dark">Sign-Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="./js/login.js"></script>
