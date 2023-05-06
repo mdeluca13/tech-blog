@@ -4,19 +4,19 @@ const { User } = require('../models');
 const userData = [
   {
     username: 'codefrenzy',
-    password: 'password',
+    password: '$2b$10$eRwrOgihbKdkGw0FitiHaOdpxQZvUP5YsyYAeWtVqLhW7mOgZKIay',
   },
   {
     username: 'livesecure',
-    password: 'password',
+    password: '$2b$10$eRwrOgihbKdkGw0FitiHaOdpxQZvUP5YsyYAeWtVqLhW7mOgZKIay',
   },
   {
     username: 'simplify',
-    password: 'password',
+    password: '$2b$10$eRwrOgihbKdkGw0FitiHaOdpxQZvUP5YsyYAeWtVqLhW7mOgZKIay',
   },
   {
     username: 'hideinplainsight',
-    password: 'password',
+    password: '$2b$10$eRwrOgihbKdkGw0FitiHaOdpxQZvUP5YsyYAeWtVqLhW7mOgZKIay',
   },
 ];
 

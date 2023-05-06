@@ -11,17 +11,23 @@ router.get('/', async (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['comment', 'created'],
+                attributes: ['comment', 'created', 'user_id'],
+                include: {
+                    model: User,
+                    attributes: ['username'],
+                }
             },
         ],
     }).catch((err) => {res.json(err)});
-
+    res.status(200).json(postData);
     const posts = postData.map((post) => post.get({ plain: true }));
-
+    console.log(posts);
     res.render('homepage', {
-        posts,
-        loggedIn: req.session.loggedIn,
-    }).catch ((err) => {res.json(err)});
+         posts
+        
+    });
+    
 });
-
+// .catch ((err) => {res.json(err)});
+// loggedIn: req.session.loggedIn,
 module.exports = router;
