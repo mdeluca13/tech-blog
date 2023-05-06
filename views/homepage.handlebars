@@ -1,9 +1,10 @@
 {{#each posts as |post|}}
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}}
 <a href="/post/{{post.id}}" style="text-decoration:none">
 {{else}}
 <a href="/user/login" style="text-decoration:none">
-{{/if}}
+{{/if}} --}}
+<a href="/post/{{post.post_id}}" style="text-decoration:none">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="card col-9">

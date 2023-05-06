@@ -1,3 +1,4 @@
+<h2 class="card-header text-center">Your Dashboard</h2>
 {{#each posts as |post|}}
 <a href="/dashboard/{{post.id}}" style="text-decoration:none">
     <div class="container-fluid">
@@ -16,7 +17,10 @@
 <a href="/dashboard/{{post.id}}" style="text-decoration:none">
     <div class="container-fluid" style="width: 30%">
         <div class="row justify-content-center">
-            <button type="button" class="btn btn-dark">Add New Post</button>
+            <a href="/user/post">
+                <button type="button" class="btn btn-dark">Add New Post</button>
+            </a>
+            
         </div>
     </div>
 </a>

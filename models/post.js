@@ -22,8 +22,9 @@ Post.init(
         allowNull: false,
       },
     created: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -33,13 +34,6 @@ Post.init(
             key: 'user_id',
         },
     },
-    // comment_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: 'comment',
-    //         key: 'comment_id',
-    //     },
-    // },
   },
   {
     sequelize,

@@ -35,11 +35,11 @@ router.post('/', async (req, res) => {
         const postData = await Post.create({
             title: req.body.title,
             content: req.body.content,
-            created: req.body.created,
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
         });
         res.status(200).json(postData)
     } catch (err) {
+        console.log(err)
         res.status(400).json(err);
     }
 });

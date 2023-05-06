@@ -18,8 +18,9 @@ Comment.init(
       allowNull: false,
     },
     created: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
         type: DataTypes.INTEGER,

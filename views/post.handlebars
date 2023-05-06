@@ -9,9 +9,17 @@
             </div>
         </div> 
     </div>  
-    
+
+    <div>
+        Previous Comments: {{post.comments.comment}} 
+        By: {{post.comments.user.username}} on {{post.comments.created}}
+    </div>
+
     <div class="row justify-content-center">
         <h5>Add a Comment:</h5>
-        <input class="form-control" type="text" placeholder="Comment">
+        <input class="form-control" type="text" placeholder="Comment" id="comment">
+        <button type="submit" class="btn btn-dark" id="comment-btn">Comment</button>
     </div>
 </div>
+
+<script src="/js/newcomment.js"></script>
