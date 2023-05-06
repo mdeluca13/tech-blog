@@ -23,11 +23,10 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     console.log(posts);
     res.render('homepage', {
-         posts
-        
-    });
-    
+         posts,
+        loggedIn: req.session.loggedIn,
+    })
+    .catch ((err) => {res.json(err)});
 });
-// .catch ((err) => {res.json(err)});
-// loggedIn: req.session.loggedIn,
+
 module.exports = router;
