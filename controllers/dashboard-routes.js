@@ -5,7 +5,7 @@ const { Post, User, Comment } = require('../models');
 router.get('/', async (req, res) => {
     const postData = await Post.findAll({
         where: {
-            user_id: req.session.user_id,
+            user_id: req.session.id,
         },
         include: [
             {
@@ -24,13 +24,12 @@ router.get('/', async (req, res) => {
     
     })
     console.log(postData)
-    // .catch((err) => {res.json(err)});
-    // const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-    // res.render('dashboard', {
-    //     posts,
-    //     loggedIn: req.session.loggedIn,
-    // })
+    res.render('dashboard', {
+        posts,
+        loggedIn: req.session.loggedIn,
+    })
 });
 
 module.exports = router;

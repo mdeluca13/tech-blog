@@ -5,9 +5,9 @@ const { Post, User, Comment } = require('../../models');
 // Getting all comment data
 router.get('/', async (req, res) => {
     const commentData = await Comment.findAll({
-        // where: {
-        //     user_id: req.session.user_id,
-        // },
+        where: {
+            user_id: req.session.user_id,
+        },
         include: [
             {
                 model: User,
@@ -19,14 +19,12 @@ router.get('/', async (req, res) => {
             },
         ],
     }).catch((err) => {res.json(err)});
-    res.status(200).json(commentData);
-    // const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-    // res.render('dashboard', {
-    //     posts,
-    //     loggedIn: req.session.loggedIn,
-    // })
-    // // .catch ((err) => {res.json(err)});
+    res.render('dashboard', {
+        posts,
+        loggedIn: req.session.loggedIn,
+    })
 });
 
 // Get individual post
