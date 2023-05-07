@@ -35,7 +35,7 @@ This can be done through npm install in your Node.JS Terminal.
 5. You can then go to the localhost link displayed in your terminal
 6. You can then create an account, login, go to dashboard to view your posts, add a new post, update a post or delete a post by clicking on a post in the dashboard, go to home page and view all posts, click on a post so you can add a comment to a post, and you can log out
 
-You can visit the live site [here]()
+You can visit the live site [here](https://mdeluca-tech-blog.herokuapp.com)
 
 ![Screenshot of Homepage](/public/images/homepage.jpg)
 ![Screenshot of Login/Signup Page](/public/images/loginsignup.jpg)
