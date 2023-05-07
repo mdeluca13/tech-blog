@@ -1,4 +1,4 @@
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 const titleEl = document.querySelector('#title');
 const contentEl = document.querySelector('#content');
 
