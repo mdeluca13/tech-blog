@@ -11,7 +11,7 @@
     </div>  
 
     <div>
-        Previous Comments: {{post.comments.comment}} 
+        Previous Comments: {{comment.post}} 
         By: {{post.comments.user.username}} on {{post.comments.created}}
     </div>
 
@@ -26,12 +26,6 @@
             <button type="submit" class="btn btn-dark" id="comment-btn">Comment</button>
         </div>
     </div>
-
-    {{!-- <div class="row justify-content-center">
-        <h5>Add a Comment:</h5>
-        <input class="form-control" type="text" placeholder="Comment" id="comment">
-        <button type="submit" class="btn btn-dark" id="comment-btn">Comment</button>
-    </div> --}}
 </div>
 
 <script src="/js/newcomment.js"></script>
