@@ -1,4 +1,4 @@
-
+<h2 class="card-header text-center">Blog Post</h2>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="card col-9">
@@ -10,20 +10,29 @@
         </div> 
     </div>  
 
-    <div>
-        Previous Comments: {{post.comments.comment}} {{ comments.comment }}
-        By: {{post.comments.user.username}} on {{post.comments.created}}
-    </div>
+    {{#if post.comments}}
+    {{#each post.comments}}
+        <div class="row justify-content-center">
+            <div class="card col-7">
+                <h5 class="card-header" style="color:black">Comment</h5>
+                <div class="card-body">
+                    <h5 class="card-title" style="color:black">{{comment}}</h5>
+                    <p class="card-text" style="color:black">Posted By: {{user.username}} on {{created}}</p>
+                </div>
+            </div> 
+        </div> 
+    {{/each}}
+    {{/if}}
 
     <div class="row justify-content-center">
-        <div class="col-7">
-            <label>Add a Comment</label>
+        <div class="col-7 text-center">
+            <h5>Add a Comment</h5>
             <input class="form-control" type="text" id="comment" placeholder="Comment">
         </div>
     </div>
     <div class="container-fluid" style="width: 30%">
         <div class="row justify-content-center">
-            <button type="submit" class="btn btn-dark" id="comment-btn">Comment</button>
+            <button type="submit" class="btn btn-dark post-id" value="{{post.post_id}}"id="comment-btn">Comment</button>
         </div>
     </div>
 </div>

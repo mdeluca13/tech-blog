@@ -14,6 +14,26 @@
     </div>
 </a>
 {{/each}}
+{{#if post.comments}}
+    <section class="card">
+      <div class="card-header">
+        <h6>Comments</h6>
+      </div>
+
+      <div class="card-body">
+        {{#each post.comments}}
+          <div>
+            <p>
+              {{comment}}
+            </p>
+            <p>
+              &mdash; {{user.username}}, {{created}}
+            </p>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  {{/if}}
 <a href="/dashboard/{{post.id}}" style="text-decoration:none">
     <div class="container-fluid">
         <div class="container-fluid" style="width: 30%">

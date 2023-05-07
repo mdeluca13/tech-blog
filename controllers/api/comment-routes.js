@@ -66,7 +66,8 @@ router.post('/', async (req, res) => {
         // user_id: req.body.user_id,
         post_id: req.body.post_id,
         })
-        console.log('commentData' + commentData) 
+        console.log('-------------------------------------------------------------')
+        console.log(commentData) 
         res.status(200).json(commentData)
     } catch (err) {
         res.status(400).json(err);

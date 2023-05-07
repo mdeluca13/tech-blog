@@ -21,28 +21,30 @@ const login = async (event) => {
   
 // Signup function
 const signup = async (event) => {
+    console.log('click')
+    
     event.preventDefault();
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-  
+    
     if (username && password) {
-        const response = await fetch('/api/user', {
-            method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
+        const response = await fetch('/api/user/signup', {
+          method: 'POST',
+          body: JSON.stringify({ username, password }),
+          headers: { 'Content-Type': 'application/json' },
         });
-  
-        if (response.ok) {
-            document.location.replace('/dashboard');
+    
+        if (response) {
+          document.location.replace('/dashboard');
         } else {
-            alert('Sign up failed, please try again.');
-        };
-    };
+          alert('Failed to sign up.');
+        }
+      }
 };
 
 // Calling Login Function on Submit Click
-document.querySelector('.login-form').addEventListener('submit', login);
+document.querySelector('#login-btn').addEventListener('click', login);
 
 // Calling Sign-up Function on Submit Click
-document.querySelector('.signup-form').addEventListener('submit', signup);
+document.querySelector('#signup-btn').addEventListener('click', signup);
   

@@ -9,7 +9,7 @@ const { User } = require('../../models');
 // });
 
 // Add new user
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create({
             username: req.body.username,
@@ -20,6 +20,10 @@ router.post('/', async (req, res) => {
             req.session.username = userData.username;
             req.session.user_id = userData.user_id;
             // res.status(200).json(userData);
+            console.log('testing loggedIn: ' +req.session.loggedIn)
+            console.log('testing username: ' +req.session.username)
+            console.log('testing user_id: ' +req.session.user_id)
+            res.status(200).json({ user: userData, message: 'Login Success.' });
         });
     } catch (err) {
         console.log(err);
