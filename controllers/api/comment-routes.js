@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
             },
         ],
     }).catch((err) => {res.json(err)});
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = commentData.map((post) => post.get({ plain: true }));
 
     res.render('dashboard', {
         posts,

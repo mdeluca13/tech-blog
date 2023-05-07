@@ -70,7 +70,7 @@ router.get('/:id', async (req, res) => {
             const post = postData.get({ plain: true });
             res.render('post', { post, loggedIn: req.session.loggedIn });
             res.status(200).json(postData)
-        
+            console.log(postData)
         } catch (err) {
             console.log(err);
             res.status(500).json(err);

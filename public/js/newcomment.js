@@ -1,7 +1,7 @@
 // const withAuth = require('../../utils/auth');
 const commentEl = document.querySelector('#comment');
 
-const newComment = async () => {
+const newComment = async (event) => {
     event.preventDefault()
     let comment = commentEl.value.trim()
     console.log('comment through js file' + comment)
