@@ -3,7 +3,7 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Getting all user data
-router.get('/', async (req, res) => {
+router.get('/',withAuth, async (req, res) => {
     const userData = await User.findAll().catch((err) => {res.json(err)});
     res.status(200).json(userData);
 });
