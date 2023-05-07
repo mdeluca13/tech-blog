@@ -1,3 +1,4 @@
+const withAuth = require('../../utils/auth');
 // Logout function
 const logout = async () => {
     const response = await fetch('api/user/logout', {

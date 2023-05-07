@@ -1,3 +1,4 @@
+const withAuth = require('../../utils/auth');
 const commentEl = document.querySelector('#comment');
 
 const newComment = async () => {

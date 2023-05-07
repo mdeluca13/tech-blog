@@ -1,3 +1,4 @@
+const withAuth = require('../../utils/auth');
 // Login function
 const login = async (event) => {
     event.preventDefault();
