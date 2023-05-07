@@ -1,13 +1,22 @@
+<h2 class="card-header text-center">Add a New Post</h2>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <h5>Title:</h5>
-        <input class="form-control" type="text" id="title" placeholder="Title">
+        <div class="col-7">
+            <label>Title</label>
+            <input type="username" class="form-control" type="text" id="title" placeholder="Title">
+        </div>
     </div>
     <div class="row justify-content-center">
-        <h5>Content:</h5>
-        <input class="form-control" type="text" id="content" placeholder="Content">
+        <div class="col-7">
+            <label>Content</label>
+            <input type="username" class="form-control" type="text" id="content" placeholder="Content">
+        </div>
     </div>
-    <button type="submit" class="btn btn-dark" id="new-post">Post</button>
+    <div class="container-fluid" style="width: 30%">
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-dark" id="new-post">Post</button>
+        </div>
+    </div>
 </div>
 
 <script src="/js/newpost.js"></script>

@@ -15,11 +15,11 @@ const newPost = async () => {
 
     console.log('response:'+response)
   
-    if (response.ok) {
-        document.location.replace('/');
-    } else {
-        alert('Failed to post.');
-    };
+    // if (response.ok) {
+    //     document.location.replace('/');
+    // } else {
+    //     alert('Failed to post.');
+    // };
 };
 
 document.querySelector('#new-post').addEventListener('click', newPost);
