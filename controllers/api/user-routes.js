@@ -2,11 +2,11 @@ const router = require('express').Router();
 const { User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
-// Getting all user data
-router.get('/', async (req, res) => {
-    const userData = await User.findAll().catch((err) => {res.json(err)});
-    res.status(200).json(userData);
-});
+// // Getting all user data
+// router.get('/', async (req, res) => {
+//     const userData = await User.findAll().catch((err) => {res.json(err)});
+//     res.status(200).json(userData);
+// });
 
 // Add new user
 router.post('/', async (req, res) => {
@@ -16,11 +16,11 @@ router.post('/', async (req, res) => {
             password: req.body.password,
         });
         req.session.save(() => {
-        req.session.loggedIn = true;
-        req.session.username = userData.username;
-        req.session.user_id = userData.user_id;
-        res.status(200).json(userData);
-      });
+            req.session.loggedIn = true;
+            req.session.username = userData.username;
+            req.session.user_id = userData.user_id;
+            // res.status(200).json(userData);
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

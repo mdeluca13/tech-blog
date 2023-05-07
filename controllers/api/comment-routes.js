@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 // const helpers = require('../utils/helpers');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 // Getting all comment data
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     const commentData = await Comment.findAll({
         where: {
             user_id: req.session.user_id,
@@ -29,7 +29,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Get individual post
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
     } else {
@@ -58,7 +58,7 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 // Add Comment
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try { 
         const commentData = await Comment.create({
         comment: req.body.comment,
@@ -74,7 +74,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // Update comment
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Comment.update(
       {
         comment: req.body.comment,
@@ -89,7 +89,7 @@ router.put('/:id', withAuth, (req, res) => {
     .then((updatedComment) => {res.json('Comment Updated')}).catch((err) => res.json(err));});
 
 // Delete comment
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Comment.destroy({
         where: {
             comment_id: req.params.id,

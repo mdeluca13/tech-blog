@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 // Getting all Post data
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     const postData = await Post.findAll({
         include: [
             {
@@ -31,7 +31,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Add Post
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try { 
         const postData = await Post.create({
             title: req.body.title,
@@ -46,7 +46,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // Get individual post
-router.get('/:id',withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
     } else {
@@ -79,11 +79,11 @@ router.get('/:id',withAuth, async (req, res) => {
 });
 
 // Update post
-router.put('/:id',withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Post.update(
       {
         title: req.body.title,
-        content: req.body.author,
+        content: req.body.content,
         created: req.body.created,
       },
       {
@@ -95,7 +95,7 @@ router.put('/:id',withAuth, (req, res) => {
     .then((updatedPost) => {res.json('Post Updated')}).catch((err) => res.json(err));});
 
 // Delete post
-router.delete('/:id',withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Post.destroy({
         where: {
             post_id: req.params.id,

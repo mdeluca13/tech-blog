@@ -1,9 +1,8 @@
 const deletePost = async (event) => {
     event.preventDefault()
-    const postID = document.getElementbyId('post-id');
+    console.log('click')
+    let postID = document.querySelector('.post-id');
     postID = postID.value;
-    console.log(postID)
-
     const response = await fetch('/api/post/' + postID, {
         method: 'DELETE'
     });

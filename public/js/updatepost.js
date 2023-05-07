@@ -1,15 +1,17 @@
-// const withAuth = require('../../utils/auth');
 const updateTitleEl = document.querySelector('#update-title');
 const updateContentEl = document.querySelector('#update-content');
 
-const newPost = async (event) => {
+const updatePost = async (event) => {
+    console.log('click')
     event.preventDefault()
+    let postID = document.querySelector('.post-id');
+    postID = postID.value;
     let title = updateTitleEl.value.trim()
     let content = updateContentEl.value.trim()
     console.log(title)
     console.log(content)
-    const response = await fetch('/api/post/', {
-        method: 'POST',
+    const response = await fetch('/api/post/' + postID, {
+        method: 'PUT',
         body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
     });
@@ -19,8 +21,8 @@ const newPost = async (event) => {
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert('Failed to post.');
+        alert('Failed to update post.');
     };
 };
 
-document.querySelector('#new-post').addEventListener('click', newPost);
+document.querySelector('#update-post').addEventListener('click', updatePost);

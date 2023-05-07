@@ -29,7 +29,8 @@ router.get('/', async (req, res) => {
 
 router.get('/user/post', (req, res) => {
     res.render('newpost')
-})
+});
+
 router.get('/post/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
