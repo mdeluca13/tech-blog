@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-// const withAuth = require('../utils/auth');
 
 // Getting all Posts for dashboard page
 router.get('/', async (req, res) => {
@@ -24,13 +23,13 @@ router.get('/', async (req, res) => {
         ],
     })
     const posts = postData.map((post) => post.get({ plain: true }));
-    // console.log(posts.comments);
     res.render('dashboard', {
         posts,
         loggedIn: req.session.loggedIn,
     })
 });
 
+// getting posts by id for dashboard
 router.get('/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');

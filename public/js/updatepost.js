@@ -1,6 +1,7 @@
 const updateTitleEl = document.querySelector('#update-title');
 const updateContentEl = document.querySelector('#update-content');
 
+// Update post function
 const updatePost = async (event) => {
     console.log('click')
     event.preventDefault()
@@ -25,4 +26,5 @@ const updatePost = async (event) => {
     };
 };
 
+// Calling update post function on click
 document.querySelector('#update-post').addEventListener('click', updatePost);

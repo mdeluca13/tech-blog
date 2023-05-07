@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-// const withAuth = require('../../utils/auth');
 
 // Getting all Posts for home page
 router.get('/', async (req, res) => {
@@ -28,10 +27,12 @@ router.get('/', async (req, res) => {
     })
 });
 
+// Rendering new post
 router.get('/user/post', (req, res) => {
     res.render('newpost')
 });
 
+// getting post by id
 router.get('/post/:id', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/user/login');
@@ -64,6 +65,7 @@ router.get('/post/:id', async (req, res) => {
     };
 });
 
+// getting user login
 router.get('/user/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');

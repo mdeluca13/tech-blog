@@ -1,10 +1,10 @@
-// const withAuth = require('../../utils/auth');
+// New comment function
 const commentEl = document.querySelector('#comment');
 
 const newComment = async (event) => {
     event.preventDefault();
     let comment = commentEl.value.trim();
-    let post_id = document.querySelector('.post-id');
+    let post_id = document.querySelector('.comment-post-id');
     post_id = post_id.value;
     await fetch('/api/comment', {
         method: 'POST',
@@ -14,4 +14,5 @@ const newComment = async (event) => {
     document.location.reload();
 };
 
+// Calling new comment function on click
 document.querySelector('#comment-btn').addEventListener('click', newComment);

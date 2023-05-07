@@ -1,3 +1,4 @@
+{{!-- Main page for rendering other handlebars pages --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
     <title>The Tech Blog</title>
 </head>
 <body>
+    {{!-- Nav Bar with links --}}
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">The Tech Blog</a>
@@ -25,6 +27,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
+                    {{!-- if logged in can go to dashboard, if not logged in go to login --}}
                     <li class="nav-item">
                         {{#if loggedIn}}
                         <a class="nav-link" href="/dashboard">Dashboard</a>
@@ -32,6 +35,7 @@
                         <a class="nav-link" href="/user/login">Dashboard</a>
                         {{/if}}
                     </li>
+                    {{!-- Rendering login if logged out and vice versa --}}
                     <li class="nav-item">
                         {{#if loggedIn}}
                         <a class="nav-link" id="logout">Logout</a>
@@ -43,6 +47,7 @@
             </div>
         </div>
     </nav>
+    {{!-- Adding body for other pages --}}
     <main>
         <div class="body container-fluid">
             {{{body}}}

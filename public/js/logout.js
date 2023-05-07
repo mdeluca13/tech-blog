@@ -1,4 +1,3 @@
-// const withAuth = require('../../utils/auth');
 // Logout function
 const logout = async () => {
     const response = await fetch('/api/user/logout', {
@@ -13,5 +12,5 @@ const logout = async () => {
     };
 };
 
-// Calling Logout Function on Submit Click
+// Calling Logout Function on Click
 document.querySelector('#logout').addEventListener('click', logout);

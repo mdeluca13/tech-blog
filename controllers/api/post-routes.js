@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
-// const withAuth = require('../../utils/auth');
 
 // Getting all Post data
 router.get('/', async (req, res) => {
@@ -21,13 +20,6 @@ router.get('/', async (req, res) => {
         ],
     }).catch((err) => {res.json(err)});
     res.status(200).json(postData);
-    // const posts = postData.map((post) => post.get({ plain: true }));
-
-    // res.render('main', {
-    //     posts,
-    //     loggedIn: req.session.loggedIn,
-    // })
-    // // .catch ((err) => {res.json(err)});
 });
 
 // Add Post
@@ -55,14 +47,14 @@ router.get('/:id', async (req, res) => {
                 include: [
                     {
                         model: User,
-                        attributes: ['username'],
+                        attributes: ['username', 'comment_id'],
                     },
                     {
                         model: Comment,
-                        attributes: ['comment', 'created', 'user_id'],
+                        attributes: ['comment_id', 'comment', 'created', 'user_id'],
                         include: {
                             model: User,
-                            attributes: ['username'],
+                            attributes: ['username', 'comment_id'],
                         }
                     },
                 ],

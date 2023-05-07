@@ -1,4 +1,4 @@
-// const withAuth = require('../../utils/auth');
+// New Post function
 const newPost = async function(event) {
     event.preventDefault();
     const titleEl = document.querySelector('#title');
@@ -17,4 +17,5 @@ const newPost = async function(event) {
     document.location.replace('/dashboard');
 };
 
+// Calling new post function on click
 document.querySelector('#new-post').addEventListener('click', newPost);

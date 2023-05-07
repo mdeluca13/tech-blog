@@ -1,3 +1,4 @@
+{{!-- Displaying all posts by the logged in user, if there are no posts, none will show --}}
 <h2 class="card-header text-center">Your Dashboard</h2>
 {{#each posts as |post|}}
 <a href="/dashboard/{{post.post_id}}" style="text-decoration:none">
@@ -13,27 +14,28 @@
         </div>  
     </div>
 </a>
-{{/each}}
+{{!-- Displaying Comments for posts if post has comments --}}
 {{#if post.comments}}
-    <section class="card">
-      <div class="card-header">
-        <h6>Comments</h6>
-      </div>
+    {{#each post.comments}}
+        <div class="row justify-content-center">
+            <div class="card col-7">
+                <h5 class="card-header" style="color:black">Comment</h5>
+                <div class="card-body">
+                    <h5 class="card-title" style="color:black">{{comment}}</h5>
+                    <p class="card-text" style="color:black">Posted By: {{user.username}} on {{created}}</p>
+                    {{!-- {{#if user.username}} --}}
+                        {{!-- <div class="row text-center">
+                            <a class="comment-id delete-comment-btn" value="" style="color:red" >Delete Comment{{comment_id}}</a>
+                        </div> --}}
+                    {{!-- {{/if}} --}}
+                </div>
+            </div> 
+        </div> 
+    {{/each}}
+    {{/if}}
+{{/each}}
 
-      <div class="card-body">
-        {{#each post.comments}}
-          <div>
-            <p>
-              {{comment}}
-            </p>
-            <p>
-              &mdash; {{user.username}}, {{created}}
-            </p>
-          </div>
-        {{/each}}
-      </div>
-    </section>
-  {{/if}}
+{{!-- New post button --}}
 <a href="/dashboard/{{post.id}}" style="text-decoration:none">
     <div class="container-fluid">
         <div class="container-fluid" style="width: 30%">

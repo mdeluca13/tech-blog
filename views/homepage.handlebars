@@ -1,21 +1,17 @@
+{{!-- Rendering homepage with list of blogs --}}
 <h2 class="card-header text-center">Blogs</h2>
 {{#each posts as |post|}}
-{{!-- {{#if loggedIn}}
-<a href="/post/{{post.id}}" style="text-decoration:none">
-{{else}}
-<a href="/user/login" style="text-decoration:none">
-{{/if}} --}}
-<a href="/post/{{post.post_id}}" style="text-decoration:none">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="card col-9">
-                <h5 class="card-header" style="color:black">{{post.title}}</h5>
-                <div class="card-body">
-                    <h5 class="card-title" style="color:black">{{post.content}}</h5>
-                    <p class="card-text" style="color:black">Posted By: {{post.user.username}} on {{post.created}}</p>
-                </div>
-            </div> 
-        </div>  
-    </div>
-</a>
+    <a href="/post/{{post.post_id}}" style="text-decoration:none">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="card col-9">
+                    <h5 class="card-header" style="color:black">{{post.title}}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:black">{{post.content}}</h5>
+                        <p class="card-text" style="color:black">Posted By: {{post.user.username}} on {{post.created}}</p>
+                    </div>
+                </div> 
+            </div>  
+        </div>
+    </a>
 {{/each}}
