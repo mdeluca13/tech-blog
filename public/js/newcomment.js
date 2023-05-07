@@ -13,11 +13,11 @@ const newComment = async () => {
 
     console.log('response through js file' + response)
   
-    // if (response.ok) {
-    //     document.location.replace('/');
-    // } else {
-    //     alert('Failed to comment.');
-    // };
+    if (response.ok) {
+        document.location.reload();
+    } else {
+        alert('Failed to comment.');
+    };
 };
 
 document.querySelector('#comment-btn').addEventListener('click', newComment);

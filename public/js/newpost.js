@@ -1,26 +1,20 @@
 // const withAuth = require('../../utils/auth');
-const titleEl = document.querySelector('#title');
-const contentEl = document.querySelector('#content');
-
-const newPost = async () => {
-    event.preventDefault()
+const newPost = async function(event) {
+    event.preventDefault();
+    const titleEl = document.querySelector('#title');
+    const contentEl = document.querySelector('#content');
+    
     let title = titleEl.value.trim()
     let content = contentEl.value.trim()
     console.log(title)
     console.log(content)
-    const response = await fetch('/api/post/', {
+    await fetch('/api/post/', {
         method: 'POST',
         body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
     });
-
-    console.log('response:'+response)
   
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert('Failed to post.');
-    };
+    document.location.replace('/dashboard');
 };
 
 document.querySelector('#new-post').addEventListener('click', newPost);
